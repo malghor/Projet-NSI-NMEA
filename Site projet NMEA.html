@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="This is my first HTML5 page.">
+    <meta name="keywords" content="HTML5, CSS3">
+    <meta name="author" content="Gwen Guillerme">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Projet NMEA</title>
+    <link rel="stylesheet" media="screen" href="Projet NMEA.css">
+</head>
+
+<body>
+    <div class="container">
+            <div class="row">
+                    <div class="col-12">
+                        <center><h1>Projet trame Nmea</h1>  </center>
+                    </div> 
+            </div>
+            
+        
+            <div  id="bleu" class="row" >
+                <div  class=" col-lg-3 col-md-6 col-xs-12">
+                    <a href="#présentation">présentation</a>
+                </div>
+                <div class=" col-lg-3 col-md-6 col-xs-12">
+                    <a href="#images">images</a>
+                </div>
+                <div class=" col-lg-3 col-md-6 col-xs-12">
+                    <a href="#principe">principe</a>
+                </div>
+                <div class=" col-lg-3 col-md-6 col-xs-12">
+                    <a href="Carte.html" target="_blank">Carte</a>
+                </div>
+                
+
+    
+            </div>
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-xs-12">
+                 <img src="img/map.png" class="img-fluid" alt="carte">  
+            </div>   
+        </div>
+
+        <div  class="row">
+            <div class="col-12">
+                <h1 id="présentation">présentation </h1>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-xs-12">
+                <h2>Qu'est ce qu'une trame NMEA ?</h2>
+                <p align="justify">La NMEA est à la base une association du nom de National Marine & Electronics Association. Elle fut fondée par des professionnels de l'industrie et de l'électronique marine. La tramme NMEA est une tramme GPS, il en existe beaucoup d'autre. La tramme NMEA est une des plus courantes en ce qui concerne les positions GPS. Elle est souvent utilisée pour connaitre la position d'un récepteur GPS. 
+                </p>
+            </div>
+            <div class="col-lg-6 col-md-6 col-xs-12">
+                <h2>Qu'est ce que l'heure UTC ? </h2>
+                <p align="justify"> L'heure UTC (Universel Temps Coordonné) est une échelle de temps comprise entre le temps atomique international et le temps universel. Si le l'heure UTC a été créer, c'est pour relier le temps atomique et le temps universel. Car le temps atomique est stable, mais il ne prend pas en compte les changements dut à la rotation de la Terre. C'est donc pour avoir une heure universelle et précise que l'heure UTC a été créée.
+                </p>
+            </div>
+            <div class="col-lg-6 col-md-6 col-xs-12" id="trame">
+                <h2>Trame NMEA choisie </h2>
+                <p align="justify"> Afin de de créer le programme permettant de dessiner un cercle autour du point choisit, il fallait derterminer la trame correspondant au lieu. J'ai donc choisit d'utiliser cette trame : $GPGGA,153522.937,4806.363,N,00508.553,E,1,12,1.0,0.0,M,0.0,M,,*63. Qui se situe à Chaumont.
+                </p>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <h1 id="images">Le code </h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+
+                <h2>monstres</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+
+                <p>Ces deux images sont des monstres que l' on rencontres dans space war.</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-xs-12">
+                <img src="images/monster.png" class="img-fluid" alt="monstre1">  
+            </div>        
+            <div class="col-lg-6 col-md-6 col-xs-12">
+                <img src="images/ufo.png" class="img-fluid" alt="monstre2">  
+            </div>
+        </div>
+        
+
+        <div class="row">
+        </div>
+                <h2>Difficulté(s)</h2>
+
+                <p>Le seul problème que je n'arrive pas à résoudre, c'est : que le centre est décalé au Sud Ouest par rapport aux coordonnées de la trame choisie. En effet, le centre du cercle de 100 Km étant la trame, je ne comprend pas pourquoi à chaque fois le centre est décalé vers le Sud Ouest par rapport aux coordonnées fournies. Car même en changeant de trame, le problème persiste. </p>
+            </div>
+        </div>
+
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
