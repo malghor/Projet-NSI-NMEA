@@ -7,7 +7,7 @@ def TrameNMEA(trame):
     heureX= trameX[1]
     heure = heureX.rstrip().split(".")
     heure = heure[0]
-    heure=(heure[0]+heure[1]+":"+heure[2]+heure[3]+":"+heure[4]+heure[5])
+    heure=(heure[0]+heure[1]+":"+heure[2]+heure[3]+","+heure[4]+heure[5])
     cardinal_latitude= trameX[3]
     latitude_degreX = trameX[2]
     latitude_degre = latitude_degreX[0:2]
@@ -34,9 +34,7 @@ def TrameNMEA(trame):
     folium.Marker(center).add_to(maCarte)
     folium.Circle(center,radius=100000,fill=True,color="red").add_to(maCarte)
     maCarte.save('Carte.html')
-    print(latitudeDD,longitudeDD)
-          
-    
+
 
 TrameNMEA(trame)
 
