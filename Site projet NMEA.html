@@ -125,8 +125,64 @@ TrameNMEA(trame)
         </div>
         <div class="row">
             <div class="col-12">
-
-                <p></p>
+                <h2>Explication du code</h2>
+                <p>Dans un premier temps, je détermine la trame que je vais utilisé : </p>
+                <pre><code class="language-python">
+trame = "$GPGGA,174133.648,4806.570,N,00508.393,E,1,12,1.0,0.0,M,0.0,M,,*6B"
+                </code></pre>
+                <p>Puis une fois que je possède cette trame, je définie ma fonction, une fois cela fait, je découpe la trame, à chaque virgule, ce qui me permet de transformer ma trame en liste. </p>
+                <pre><code class="language-python">
+def TrameNMEA(trame):
+    trameX=trame.rstrip().split(",")
+                </code></pre>
+                <p>Comme ma trame est transformée en liste, je peux ensuite récupérer ce que je veux grâce aux indices de la liste : </p>
+                <pre><code class="language-python">
+heureX= trameX[1]
+heure = heureX.rstrip().split(".")
+heure = heure[0]
+                </code></pre>
+                <p>Ensuite, je récupére l'heure que je split avec les points, afin de pouvoir récupérer ce que je veux avec les indices,car "heure" est maintenant aussi une liste, je récupère donc l'heure, les minutes et les secondes que je met en forme : </p>
+                <pre><code class="language-python">
+heure=(heure[0]+heure[1]+":"+heure[2]+heure[3]+","+heure[4]+heure[5])s   
+                </code></pre>
+                <p>Une fois cela fait, je commence à récupérer le point cardinal, puis la latitude DD, que je vais transformer en latitude DMS : </p>
+                <pre><code class="language-python">
+    cardinal_latitude= trameX[3]
+    latitude_degreX = trameX[2]
+    latitude_degre = latitude_degreX[0:2]
+    latitude_secondesX =int(latitude_degreX[5:8])*10**-3*60
+    latitude_secondesX=str(latitude_secondesX)
+    latitude_minute=latitude_secondesX[0:2]
+    latitude_seconde=latitude_secondesX[3:5]
+    latitudeDD=float(trameX[2])*10**-2
+    latitude_DMS=latitude_degre+"°"+latitude_minute+"'"+ latitude_seconde+"''"+cardinal_latitude     
+                </code></pre>
+                <p>Une fois cela fait, je fait la même chose avec la longitude :</p>
+                <pre><code class="language-python">   
+    cardinal_longitude= trameX[5]
+    longitude_degreX= trameX[4]
+    longitude_degre=longitude_degreX[2]
+    longitude_secondeX=int(longitude_degreX[6:9])*10**-3*60
+    longitude_secondeX=str(longitude_secondeX)
+    longitude_minute=longitude_secondeX[0:2]
+    longitude_seconde=longitude_secondeX[3:5]
+    longitudeDD=float(trameX[4])*10**-2
+    longitude_DMS=longitude_degre+"°"+longitude_minute+"'"+ longitude_seconde+"''"+cardinal_longitude
+                </code></pre>
+                <p>Enfin, je récupère l'altitude et le nombre de satellites nécessaire pour l'acquisition de la trame, puis je remet tout en ordre en faisant un print de toutes les informations demandées :  </p>
+                <pre><code class="language-python">
+    altitude=trameX[9]+" m"
+    nombre_satellite= trameX[7]
+    print("Heure : ",heure," Latitude : ",latitude_DMS," Longitude : ",longitude_DMS," Altitude : ",altitude," Nombre de satellites : ",nombre_satellite)            
+                </code></pre>
+                <p>Pour finir, nous passons sur la partie Follium, dans un premier temps, je crée ma carte, dont les coordonnées sont la longitude et la latitude DD de ma trame. Je crée aussi le centre de ma carte, je crée aussi un marker qui permet de connaitre l'emplacement du centre, et enfin je crée la zone de 100km autour du centre. Et j'enregistre la page web "Carte.html"  : </p>
+                <pre><code class="language-python">
+    maCarte= folium.Map(location=[latitudeDD,longitudeDD],zoom_start=8)
+    center=[latitudeDD,longitudeDD]
+    folium.Marker(center).add_to(maCarte)
+    folium.Circle(center,radius=100000,fill=True,color="red").add_to(maCarte)
+    maCarte.save('Carte.html')
+                </code></pre>
             </div>
         </div>
 
